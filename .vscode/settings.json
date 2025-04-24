@@ -1,0 +1,11 @@
+{
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "driver": "SQLite",
+            "name": "MyDBAccess",
+            "database": "${workspaceFolder:projects}/capmproject/db.sqlite"
+        }
+    ],
+    "SAP HANA Database Explorer.UseObjectsDefinitionForSqlGeneration.RetentionTime": 7
+}

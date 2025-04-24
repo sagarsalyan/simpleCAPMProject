@@ -1,0 +1,7 @@
+GET http://localhost:4004/sap/opu/odata/sap/API_SALES_ORDER/OrderSet
+###
+
+POST http://localhost:4004/sap/opu/odata/sap/API_SALES_ORDER/OrderSet
+Content-Type: application/json
+
+{"orderid": 3,"customername": "Madhu","contactperson": "Varun","grossamount": 300,"currency": "INR"}

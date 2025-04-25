@@ -1,0 +1,1 @@
+using teachersservice as service from '../../srv/myservice';

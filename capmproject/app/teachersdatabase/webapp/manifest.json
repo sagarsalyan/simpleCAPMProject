@@ -1,0 +1,148 @@
+{
+  "_version": "1.65.0",
+  "sap.app": {
+    "id": "com.teachersdatabase.teachersdatabase",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:basic",
+      "version": "1.17.3",
+      "toolsId": "2cc501bb-88da-45e8-a0cd-b928345ec5fa"
+    },
+    "dataSources": {
+      "mainService": {
+        "uri": "/sap/opu/odata/sap/API_TEACHERS_DATA/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "odataVersion": "4.0"
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.135.0",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "com.teachersdatabase.teachersdatabase.i18n.i18n"
+        }
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {
+          "operationMode": "Server",
+          "autoExpandSelect": true,
+          "earlyRequests": true
+        }
+      }
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "controlAggregation": "pages",
+        "controlId": "page",
+        "transition": "slide",
+        "type": "View",
+        "viewType": "XML",
+        "path": "com.teachersdatabase.teachersdatabase.view",
+        "async": true,
+        "viewPath": "com.teachersdatabase.teachersdatabase.view"
+      },
+      "routes": [
+        {
+          "name": "FlexibleColumnLayoutView",
+          "pattern": "",
+          "target": [
+            "FlexibleColumnLayoutView",
+            "TeacherListView"
+          ]
+        },
+        {
+          "name": "TeacherListView",
+          "pattern": "teacherlist",
+          "target": [
+            "TeacherListView"
+          ]
+        },
+        {
+          "name": "SubjectListView",
+          "pattern": "subjectlist",
+          "target": [
+            "SubjectListView"
+          ]
+        }
+      ],
+      "targets": {
+        "FlexibleColumnLayoutView": {
+          "viewType": "XML",
+          "viewName": "FlexibleColumnLayout",
+          "controlId": "idNavContainer",
+          "viewLevel": 1
+        },
+        "TeacherListView": {
+          "viewType": "XML",
+          "viewName": "TeachersList",
+          "parent": "FlexibleColumnLayoutView",
+          "controlId": "idFlexibleColumnLayout",
+          "controlAggregation": "beginColumnPages"
+        },
+        "SubjectListView": {
+          "viewType": "XML",
+          "viewName": "SubjectsList",
+          "parent": "FlexibleColumnLayoutView",
+          "controlId": "idFlexibleColumnLayout",
+          "controlAggregation": "beginColumnPages"
+        }
+      }
+    },
+    "rootView": {
+      "viewName": "com.teachersdatabase.teachersdatabase.view.App",
+      "type": "XML",
+      "id": "App",
+      "async": true
+    }
+  }
+}

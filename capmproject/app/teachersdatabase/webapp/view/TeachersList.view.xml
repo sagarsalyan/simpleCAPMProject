@@ -1,0 +1,24 @@
+<mvc:View controllerName="com.teachersdatabase.teachersdatabase.controller.TeachersList"
+    xmlns:mvc="sap.ui.core.mvc" xmlns:f="sap.f" xmlns:smartList="sap.ui.comp.smartlist"
+    xmlns="sap.m">
+    <f:DynamicPage id="dynamicPageIdTeachers" toggleHeaderOnTitleClick="false">
+		<!-- DynamicPage Title -->
+		<f:title>
+			<f:DynamicPageTitle>
+				<f:heading>
+					<Title text="Teachers View"/>
+				</f:heading>
+			</f:DynamicPageTitle>
+		</f:title>
+        <!-- DynamicPage Content -->
+		<f:content>
+            <smartList:SmartList id="idTeacherList" entitySet="TeacherSet" header="List"
+				showRowCount="true" showFullScreenButton="true" enableAutoBinding="true">
+				<smartList:listItemTemplate>
+					<StandardListItem title="{teachername}" info="{teacherid}"
+						description="{address}" />
+				</smartList:listItemTemplate>
+			</smartList:SmartList>
+        </f:content>
+    </f:DynamicPage>
+</mvc:View>

@@ -1,0 +1,18 @@
+<mvc:View controllerName="com.teachersdatabase.teachersdatabase.controller.App"
+    xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core"
+    xmlns="sap.m">
+    <App >
+        <Page id="page" title="{i18n>title}">
+            <headerContent>
+                <Select change="onViewChange">
+                    <core:Item key="1" text="Teachers View" />
+                    <core:Item key="2" text="Subjects View" />
+                    <core:Item key="3" text="Batches View" />
+                </Select>
+            </headerContent>
+            <content>
+                <NavContainer id="idNavContainer"/>
+            </content>
+        </Page>
+    </App>
+</mvc:View>

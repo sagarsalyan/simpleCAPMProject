@@ -1,0 +1,7 @@
+<mvc:View controllerName="com.teachersdatabase.teachersdatabase.controller.FlexibleColumnLayout"
+    xmlns:mvc="sap.ui.core.mvc" xmlns:f="sap.f"
+    xmlns="sap.m">
+    <Page showHeader="false">
+        <f:FlexibleColumnLayout id="idFlexibleColumnLayout" backgroundDesign="Solid"></f:FlexibleColumnLayout>
+    </Page>
+</mvc:View>

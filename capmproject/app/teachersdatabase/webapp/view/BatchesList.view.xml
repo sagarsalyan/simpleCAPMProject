@@ -1,0 +1,24 @@
+<mvc:View controllerName="com.teachersdatabase.teachersdatabase.controller.BatchesList"
+    xmlns:mvc="sap.ui.core.mvc" xmlns:f="sap.f" xmlns:smartList="sap.ui.comp.smartlist"
+    xmlns="sap.m">
+    <f:DynamicPage id="dynamicPageIdBatches" toggleHeaderOnTitleClick="false">
+		<!-- DynamicPage Title -->
+		<f:title>
+			<f:DynamicPageTitle>
+				<f:heading>
+					<Title text="Batch View"/>
+				</f:heading>
+			</f:DynamicPageTitle>
+		</f:title>
+        <!-- DynamicPage Content -->
+		<f:content>
+            <smartList:SmartList id="idBatchList" entitySet="BatchSet" header="List"
+				showRowCount="true" showFullScreenButton="true" enableAutoBinding="true">
+				<smartList:listItemTemplate>
+					<StandardListItem title="{batchname}" info="{batchid}"
+						description="{batchtype}" />
+				</smartList:listItemTemplate>
+			</smartList:SmartList>
+        </f:content>
+    </f:DynamicPage>
+</mvc:View>

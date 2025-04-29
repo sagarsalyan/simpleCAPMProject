@@ -5,10 +5,11 @@
         <Page id="page" title="{i18n>title}">
             <headerContent>
                 <Select change="onViewChange">
-                    <core:Item key="1" text="Teachers View" />
-                    <core:Item key="2" text="Subjects View" />
-                    <core:Item key="3" text="Batches View" />
+                    <core:Item key="T" text="Teachers View" />
+                    <core:Item key="S" text="Subjects View" />
+                    <core:Item key="B" text="Batches View" />
                 </Select>
+                <Button icon="sap-icon://synchronize" press="onAppRefresh"></Button>
             </headerContent>
             <content>
                 <NavContainer id="idNavContainer"/>

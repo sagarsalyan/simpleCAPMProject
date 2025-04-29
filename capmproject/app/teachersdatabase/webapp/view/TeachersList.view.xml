@@ -1,6 +1,7 @@
 <mvc:View controllerName="com.teachersdatabase.teachersdatabase.controller.TeachersList"
     xmlns:mvc="sap.ui.core.mvc" xmlns:f="sap.f" xmlns:smartList="sap.ui.comp.smartlist"
-    xmlns="sap.m">
+    xmlns="sap.m" xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+	xmlns:smarttable="sap.ui.comp.smarttable" >
     <f:DynamicPage id="dynamicPageIdTeachers" toggleHeaderOnTitleClick="false">
 		<!-- DynamicPage Title -->
 		<f:title>
@@ -12,13 +13,26 @@
 		</f:title>
         <!-- DynamicPage Content -->
 		<f:content>
-            <smartList:SmartList id="idTeacherList" entitySet="TeacherSet" header="List"
-				showRowCount="true" showFullScreenButton="true" enableAutoBinding="true">
+            <!-- <smartList:SmartList id="idTeacherList" entitySet="TeacherSet" header="List"
+				showRowCount="true" selectFields="teachername,teacherid,address" showFullScreenButton="true" enableAutoBinding="true">
+				<List mode="SingleSelectMaster" selectionChange="onSelectTeacher"/>
 				<smartList:listItemTemplate>
 					<StandardListItem title="{teachername}" info="{teacherid}"
 						description="{address}" />
 				</smartList:listItemTemplate>
-			</smartList:SmartList>
+			</smartList:SmartList> -->
+			<smarttable:SmartTable id="idTeacherList" app:useSmartToggle="true" enableAutoBinding="true"
+				tableType="ResponsiveTable" initiallyVisibleFields="teachername,teacherid,address" editable="false" 
+				showRowCount="true" header="List" headerLevel="H4" persistencyKey="Teacher_Variant" 
+				entitySet="TeacherSet" editTogglable="true" editToggled="onTeacherEditToggled">
+				<Table mode="SingleSelectMaster" selectionChange="onSelectTeacher"/>
+				<smarttable:customToolbar>
+					<OverflowToolbar >
+						<ToolbarSpacer ></ToolbarSpacer>
+						<Button text="Add" press="onAddTeacher"></Button>
+					</OverflowToolbar>
+				</smarttable:customToolbar>
+			</smarttable:SmartTable>
         </f:content>
     </f:DynamicPage>
 </mvc:View>

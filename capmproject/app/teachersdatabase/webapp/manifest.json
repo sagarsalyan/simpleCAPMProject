@@ -17,11 +17,11 @@
     },
     "dataSources": {
       "mainService": {
-        "uri": "/sap/opu/odata/sap/API_TEACHERS_DATA/",
+        "uri": "/odata/v2/sap/opu/odata/sap/API_TEACHERS_DATA/",
         "type": "OData",
         "settings": {
           "annotations": [],
-          "odataVersion": "4.0"
+          "odataVersion": "2.0"
         }
       }
     }
@@ -43,7 +43,7 @@
     }
   },
   "sap.ui5": {
-    "flexEnabled": true,
+    "flexEnabled": false,
     "dependencies": {
       "minUI5Version": "1.135.0",
       "libs": {
@@ -68,7 +68,10 @@
         "settings": {
           "operationMode": "Server",
           "autoExpandSelect": true,
-          "earlyRequests": true
+          "earlyRequests": true,          
+          "defaultBindingMode": "TwoWay",
+          "refreshAfterChange": true
+
         }
       }
     },
@@ -108,10 +111,25 @@
           ]
         },
         {
+          "name": "TeacherDetailView",
+          "pattern": "teacherdetail/{id}/{layout}",
+          "target": [
+            "TeacherListView",
+            "TeacherDetailView"
+          ]
+        },
+        {
           "name": "SubjectListView",
           "pattern": "subjectlist",
           "target": [
             "SubjectListView"
+          ]
+        },
+        {
+          "name": "BatchListView",
+          "pattern": "batchlist",
+          "target": [
+            "BatchListView"
           ]
         }
       ],
@@ -127,12 +145,30 @@
           "viewName": "TeachersList",
           "parent": "FlexibleColumnLayoutView",
           "controlId": "idFlexibleColumnLayout",
+          "clearControlAggregation": true,
           "controlAggregation": "beginColumnPages"
+        },
+        "TeacherDetailView": {
+          "viewType": "XML",
+          "viewName": "TeacherDetail",
+          "parent": "FlexibleColumnLayoutView",
+          "controlId": "idFlexibleColumnLayout",
+          "clearControlAggregation": true,
+          "controlAggregation": "midColumnPages"
         },
         "SubjectListView": {
           "viewType": "XML",
           "viewName": "SubjectsList",
           "parent": "FlexibleColumnLayoutView",
+          "clearControlAggregation": true,
+          "controlId": "idFlexibleColumnLayout",
+          "controlAggregation": "beginColumnPages"
+        },
+        "BatchListView": {
+          "viewType": "XML",
+          "viewName": "BatchesList",
+          "parent": "FlexibleColumnLayoutView",
+          "clearControlAggregation": true,
           "controlId": "idFlexibleColumnLayout",
           "controlAggregation": "beginColumnPages"
         }

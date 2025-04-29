@@ -1,0 +1,82 @@
+<mvc:View controllerName="com.teachersdatabase.teachersdatabase.controller.TeacherDetail"
+    xmlns:mvc="sap.ui.core.mvc" xmlns:f="sap.f" xmlns:uxap="sap.uxap" xmlns:smartList="sap.ui.comp.smartlist"
+    xmlns="sap.m" xmlns:smartfield="sap.ui.comp.smartfield" xmlns:smartform="sap.ui.comp.smartform" 
+    xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+    xmlns:smarttable="sap.ui.comp.smarttable" xmlns:smartfilterbar="sap.ui.comp.smartfilterbar">
+    <uxap:ObjectPageLayout id="ObjectPageLayout" enableLazyLoading="true" upperCaseAnchorBar="false"
+	    headerContentPinned="true">
+        <uxap:headerTitle>
+            <uxap:ObjectPageDynamicHeaderTitle>
+                <uxap:heading>
+                    <Title text="{teachername}"/>
+                </uxap:heading>
+                <uxap:expandedContent>
+					<Text text="{address}"/>
+				</uxap:expandedContent>
+                <uxap:actions>
+                    <OverflowToolbar >
+                        <Button text="Save" press="onSaveTeacher"></Button>
+                    </OverflowToolbar>
+                </uxap:actions>
+            </uxap:ObjectPageDynamicHeaderTitle>
+        </uxap:headerTitle>
+        <uxap:sections>
+            <uxap:ObjectPageSection titleUppercase="false" title="my section">
+                <uxap:subSections>
+                    <uxap:ObjectPageSubSection title="General" mode="Expanded" titleUppercase="false">
+                        <uxap:blocks>
+						<smartform:SmartForm editable="true"  entityType="TeacherSet">
+                            <smartform:Group>
+                                <smartform:GroupElement>
+                                    <smartfield:SmartField value="{teacherid}" />
+                                </smartform:GroupElement>
+
+                                <smartform:GroupElement>
+                                    <smartfield:SmartField value="{teachername}" />
+                                </smartform:GroupElement>
+
+                                <smartform:GroupElement>
+                                    <smartfield:SmartField value="{address}" />
+                                </smartform:GroupElement>
+                            </smartform:Group>
+                            </smartform:SmartForm>
+                        </uxap:blocks>
+                    </uxap:ObjectPageSubSection>
+                </uxap:subSections>
+            </uxap:ObjectPageSection>
+             <uxap:ObjectPageSection titleUppercase="false" title="my section">
+                <uxap:subSections>
+                    <uxap:ObjectPageSubSection title="Subjects" mode="Expanded" titleUppercase="false">
+                        <uxap:blocks>
+							<smarttable:SmartTable id="idTableSubject" app:useSmartToggle="true" enableAutoBinding="true"
+                                tableType="ResponsiveTable" initiallyVisibleFields="subjectid,createdAt" editable="false" 
+                                showRowCount="true" header="Subjects" headerLevel="H4" persistencyKey="Teacher_Subjects_Variant" 
+                                entitySet="TeacherSubjectSet" tableBindingPath="toteachersubjects" editTogglable="true" editToggled="onTeacherSubjectEditToggled">
+                                <smarttable:customToolbar>
+                                    <OverflowToolbar >
+                                        <ToolbarSpacer ></ToolbarSpacer>
+                                        <Button text="Add" press="onAddTeacherSubject"></Button>
+                                    </OverflowToolbar>
+                                </smarttable:customToolbar>
+                            </smarttable:SmartTable>
+                        </uxap:blocks>
+                    </uxap:ObjectPageSubSection>
+                </uxap:subSections>
+            </uxap:ObjectPageSection>
+            <uxap:ObjectPageSection titleUppercase="false" title="my section">
+                <uxap:subSections>
+                    <uxap:ObjectPageSubSection title="Batches" mode="Expanded" titleUppercase="false">
+                        <uxap:blocks>
+							<smarttable:SmartTable id="idTableBatch" app:useSmartToggle="true" enableAutoBinding="true" 
+                                tableType="ResponsiveTable" initiallyVisibleFields="batchid,createdAt" editable="false" 
+                                showRowCount="true" header="Batches" headerLevel="H4" persistencyKey="Teacher_Batches_Variant" 
+                                entitySet="TeacherBatchSet" tableBindingPath="toteacherbatches" editTogglable="true">
+
+                            </smarttable:SmartTable>
+                        </uxap:blocks>
+                    </uxap:ObjectPageSubSection>
+                </uxap:subSections>
+            </uxap:ObjectPageSection>
+        </uxap:sections>
+    </uxap:ObjectPageLayout>
+</mvc:View>

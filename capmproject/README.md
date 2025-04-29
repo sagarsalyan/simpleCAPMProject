@@ -77,6 +77,19 @@ Learn more at https://cap.cloud.sap/docs/get-started/.
 10 - Run the project
     Command - cds run
 
+11 - Smart table does not work with oData v4 - need OData V2 Adapter Proxy to downgrade the OData V4 model to V2
+    Install @cap-js-community/odata-v2-adapter 
+    Run command - npm i @cap-js-community/odata-v2-adapter
+    In package.json add
+             "cds": {
+                "cov2ap": {
+                "plugin": true
+                }
+            }
+    Change URI od dataService in manifest as per the v2 Odata Service
+    e.g.  "uri": "/odata/v2/sap/opu/odata/sap/API_TEACHERS_DATA/",
+
+
 
 
 

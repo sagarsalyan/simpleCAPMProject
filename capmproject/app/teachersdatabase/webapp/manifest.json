@@ -126,10 +126,27 @@
           ]
         },
         {
+          "name": "SubjectDetailView",
+          "pattern": "subjectdetail/{id}/{layout}",
+          "target": [
+            "SubjectListView",
+            "SubjectDetailView"
+          ]
+        },
+       
+        {
           "name": "BatchListView",
           "pattern": "batchlist",
           "target": [
             "BatchListView"
+          ]
+        },
+        {
+          "name": "BatchDetailView",
+          "pattern": "batchdetail/{id}/{layout}",
+          "target": [
+            "BatchListView",
+            "BatchDetailView"
           ]
         }
       ],
@@ -164,6 +181,14 @@
           "controlId": "idFlexibleColumnLayout",
           "controlAggregation": "beginColumnPages"
         },
+        "SubjectDetailView": {
+          "viewType": "XML",
+          "viewName": "SubjectDetail",
+          "parent": "FlexibleColumnLayoutView",
+          "controlId": "idFlexibleColumnLayout",
+          "clearControlAggregation": true,
+          "controlAggregation": "midColumnPages"
+        },
         "BatchListView": {
           "viewType": "XML",
           "viewName": "BatchesList",
@@ -171,6 +196,14 @@
           "clearControlAggregation": true,
           "controlId": "idFlexibleColumnLayout",
           "controlAggregation": "beginColumnPages"
+        },
+        "BatchDetailView": {
+          "viewType": "XML",
+          "viewName": "BatchDetail",
+          "parent": "FlexibleColumnLayoutView",
+          "controlId": "idFlexibleColumnLayout",
+          "clearControlAggregation": true,
+          "controlAggregation": "midColumnPages"
         }
       }
     },

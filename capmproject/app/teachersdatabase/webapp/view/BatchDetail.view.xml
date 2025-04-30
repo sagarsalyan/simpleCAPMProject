@@ -1,0 +1,49 @@
+<mvc:View controllerName="com.teachersdatabase.teachersdatabase.controller.BatchDetail"
+    xmlns:mvc="sap.ui.core.mvc" xmlns:f="sap.f" xmlns:uxap="sap.uxap" xmlns:smartList="sap.ui.comp.smartlist"
+    xmlns="sap.m" xmlns:smartfield="sap.ui.comp.smartfield" xmlns:smartform="sap.ui.comp.smartform" 
+    xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+    xmlns:smarttable="sap.ui.comp.smarttable" xmlns:smartfilterbar="sap.ui.comp.smartfilterbar">
+    <uxap:ObjectPageLayout id="idBatchObjectPage" enableLazyLoading="true" upperCaseAnchorBar="false"
+	    headerContentPinned="true">
+        <uxap:headerTitle>
+            <uxap:ObjectPageDynamicHeaderTitle>
+                <uxap:heading>
+                    <Title text="{batchname}"/>
+                </uxap:heading>
+                <uxap:expandedContent>
+					<Text text="{batchtype}"/>
+				</uxap:expandedContent>
+                <uxap:actions>
+                    <OverflowToolbar >
+                        <Button text="Save" press="onSaveBatch"></Button>
+                    </OverflowToolbar>
+                </uxap:actions>
+            </uxap:ObjectPageDynamicHeaderTitle>
+        </uxap:headerTitle>
+        <uxap:sections>
+            <uxap:ObjectPageSection titleUppercase="false" title="my section">
+                <uxap:subSections>
+                    <uxap:ObjectPageSubSection title="General" mode="Expanded" titleUppercase="false">
+                        <uxap:blocks>
+						<smartform:SmartForm editable="true"  entityType="BatchSet">
+                            <smartform:Group>
+                                <smartform:GroupElement>
+                                    <smartfield:SmartField value="{batchid}" />
+                                </smartform:GroupElement>
+
+                                <smartform:GroupElement>
+                                    <smartfield:SmartField value="{batchname}" />
+                                </smartform:GroupElement>
+
+                                <smartform:GroupElement>
+                                    <smartfield:SmartField value="{batchtype}" />
+                                </smartform:GroupElement>
+                            </smartform:Group>
+                            </smartform:SmartForm>
+                        </uxap:blocks>
+                    </uxap:ObjectPageSubSection>
+                </uxap:subSections>
+            </uxap:ObjectPageSection>
+        </uxap:sections>
+    </uxap:ObjectPageLayout>
+</mvc:View>

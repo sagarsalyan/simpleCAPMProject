@@ -1,6 +1,6 @@
 <mvc:View controllerName="com.teachersdatabase.teachersdatabase.controller.SubjectsList"
     xmlns:mvc="sap.ui.core.mvc" xmlns:f="sap.f" xmlns:smartList="sap.ui.comp.smartlist"
-    xmlns="sap.m">
+    xmlns="sap.m" xmlns:smarttable="sap.ui.comp.smarttable" xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
     <f:DynamicPage id="dynamicPageIdSubjects" toggleHeaderOnTitleClick="false">
 		<!-- DynamicPage Title -->
 		<f:title>
@@ -12,13 +12,25 @@
 		</f:title>
         <!-- DynamicPage Content -->
 		<f:content>
-            <smartList:SmartList id="idSubjectsList" entitySet="SubjectSet" header="List"
+            <!-- <smartList:SmartList id="idSubjectsList" entitySet="SubjectSet" header="List"
 				showRowCount="true" showFullScreenButton="true" enableAutoBinding="true">
 				<smartList:listItemTemplate>
 					<StandardListItem title="{subjectname}" info="{subjectid}"
 						description="{subjectgroup}" />
 				</smartList:listItemTemplate>
-			</smartList:SmartList>
+			</smartList:SmartList> -->
+			<smarttable:SmartTable id="idSubjectList" app:useSmartToggle="true" enableAutoBinding="true"
+				tableType="ResponsiveTable" initiallyVisibleFields="subjectname,subjectid,subjectgroup" editable="false" 
+				showRowCount="true" header="List" headerLevel="H4" persistencyKey="Subject_Variant" 
+				entitySet="SubjectSet" editTogglable="true" editToggled="onSubjectEditToggled">
+				<Table mode="SingleSelectMaster" selectionChange="onSelectSubject"/>
+				<smarttable:customToolbar>
+					<OverflowToolbar >
+						<ToolbarSpacer ></ToolbarSpacer>
+						<Button text="Add" press="onAddSubject"></Button>
+					</OverflowToolbar>
+				</smarttable:customToolbar>
+			</smarttable:SmartTable>
         </f:content>
     </f:DynamicPage>
 </mvc:View>

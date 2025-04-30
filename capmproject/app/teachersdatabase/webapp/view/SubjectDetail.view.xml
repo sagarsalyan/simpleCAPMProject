@@ -1,0 +1,49 @@
+<mvc:View controllerName="com.teachersdatabase.teachersdatabase.controller.SubjectDetail"
+    xmlns:mvc="sap.ui.core.mvc" xmlns:f="sap.f" xmlns:uxap="sap.uxap" xmlns:smartList="sap.ui.comp.smartlist"
+    xmlns="sap.m" xmlns:smartfield="sap.ui.comp.smartfield" xmlns:smartform="sap.ui.comp.smartform" 
+    xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+    xmlns:smarttable="sap.ui.comp.smarttable" xmlns:smartfilterbar="sap.ui.comp.smartfilterbar">
+    <uxap:ObjectPageLayout id="idSubjectObjectPage" enableLazyLoading="true" upperCaseAnchorBar="false"
+	    headerContentPinned="true">
+        <uxap:headerTitle>
+            <uxap:ObjectPageDynamicHeaderTitle>
+                <uxap:heading>
+                    <Title text="{subjectname}"/>
+                </uxap:heading>
+                <uxap:expandedContent>
+					<Text text="{subjectgroup}"/>
+				</uxap:expandedContent>
+                <uxap:actions>
+                    <OverflowToolbar >
+                        <Button text="Save" press="onSaveSubject"></Button>
+                    </OverflowToolbar>
+                </uxap:actions>
+            </uxap:ObjectPageDynamicHeaderTitle>
+        </uxap:headerTitle>
+        <uxap:sections>
+            <uxap:ObjectPageSection titleUppercase="false" title="my section">
+                <uxap:subSections>
+                    <uxap:ObjectPageSubSection title="General" mode="Expanded" titleUppercase="false">
+                        <uxap:blocks>
+						<smartform:SmartForm editable="true"  entityType="SubjectSet">
+                            <smartform:Group>
+                                <smartform:GroupElement>
+                                    <smartfield:SmartField value="{subjectid}" />
+                                </smartform:GroupElement>
+
+                                <smartform:GroupElement>
+                                    <smartfield:SmartField value="{subjectname}" />
+                                </smartform:GroupElement>
+
+                                <smartform:GroupElement>
+                                    <smartfield:SmartField value="{subjectgroup}" />
+                                </smartform:GroupElement>
+                            </smartform:Group>
+                            </smartform:SmartForm>
+                        </uxap:blocks>
+                    </uxap:ObjectPageSubSection>
+                </uxap:subSections>
+            </uxap:ObjectPageSection>
+        </uxap:sections>
+    </uxap:ObjectPageLayout>
+</mvc:View>

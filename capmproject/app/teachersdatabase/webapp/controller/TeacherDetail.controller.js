@@ -23,6 +23,11 @@ sap.ui.define([
             var oBinding = this.getView().byId("idTableSubject").getTable().getBinding("items");
             oBinding.create({}, false);
         },
+        onAddTeacherBatch: function(oEvent){
+            debugger;
+            var oBinding = this.getView().byId("idTableBatch").getTable().getBinding("items");
+            oBinding.create({}, false);
+        },
 
         onTeacherSubjectEditToggled: function(oEvent){
             debugger

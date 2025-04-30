@@ -71,7 +71,12 @@
                                 tableType="ResponsiveTable" initiallyVisibleFields="batchid,createdAt" editable="false" 
                                 showRowCount="true" header="Batches" headerLevel="H4" persistencyKey="Teacher_Batches_Variant" 
                                 entitySet="TeacherBatchSet" tableBindingPath="toteacherbatches" editTogglable="true">
-
+                                <smarttable:customToolbar>
+                                    <OverflowToolbar >
+                                        <ToolbarSpacer ></ToolbarSpacer>
+                                        <Button text="Add" press="onAddTeacherBatch"></Button>
+                                    </OverflowToolbar>
+                                </smarttable:customToolbar>
                             </smarttable:SmartTable>
                         </uxap:blocks>
                     </uxap:ObjectPageSubSection>

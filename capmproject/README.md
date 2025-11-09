@@ -89,6 +89,9 @@ Learn more at https://cap.cloud.sap/docs/get-started/.
     Change URI od dataService in manifest as per the v2 Odata Service
     e.g.  "uri": "/odata/v2/sap/opu/odata/sap/API_TEACHERS_DATA/",
 
+12 - Add MTA.YAML
+    Run 'cds add mta'
+
 
 
 

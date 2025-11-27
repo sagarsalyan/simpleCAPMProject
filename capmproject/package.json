@@ -7,11 +7,12 @@
   "private": true,
   "dependencies": {
     "@cap-js-community/odata-v2-adapter": "^1.14.3",
-    "@sap/cds": "^8",
+    "@cap-js/postgres": "^2.1.0",
+    "@sap/cds": "^9.4.4",
     "express": "^4"
   },
   "devDependencies": {
-    "@cap-js/cds-types": "^0.9.0",
+    "@cap-js/cds-types": "^0.15.0",
     "@cap-js/sqlite": "^1",
     "@sap/cds-dk": "^9"
   },
@@ -20,13 +21,17 @@
     "watch-teachersdatabase": "cds watch --open teachersdatabase/webapp/index.html?sap-ui-xx-viewCache=false"
   },
   "cds": {
-    "cov2ap": {
-      "plugin": true
+    "[postgres]": {
+      "requires": {
+        "db": {
+          "kind": "postgres"
+        }
+      }
     },
-    "[sqlite]":{
-      "requires":{
-        "db":{
-          "kind":"sqlite"
+    "[sqlite]": {
+      "requires": {
+        "db": {
+          "kind": "sqlite"
         }
       }
     }

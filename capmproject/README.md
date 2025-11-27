@@ -99,11 +99,27 @@ Learn more at https://cap.cloud.sap/docs/get-started/.
             }
             }
         }
-    This way we can add multiple profile like 'postgre', 'hana' to use those databases
+    This way we can add multiple profile like 'postgres', 'hana' to use those databases
 13 - To generate artifacts, run below command
     cds build or 
-    cds build --profile sqlite   -- if profile added in the package.json
+    cds build --profile sqlite   --> if profile added in the package.json
     This will generate 'gen' folder 
+
+## To include POSTGRES database
+
+1 - To add POSTGRES, add below code under 'cds' section of package.json
+    "cds": {
+        "[postgres]": {
+            "requires": {
+                "db": {
+                "kind": "postgres"
+                }
+            }
+        },
+    }
+2 - Run below command to generate artifacts
+    cds build --profile postgres
+    This will generate 'gen' folder, inside it 'pg' and 'srv'
 
 
 

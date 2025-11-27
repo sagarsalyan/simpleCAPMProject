@@ -89,8 +89,23 @@ Learn more at https://cap.cloud.sap/docs/get-started/.
     Change URI od dataService in manifest as per the v2 Odata Service
     e.g.  "uri": "/odata/v2/sap/opu/odata/sap/API_TEACHERS_DATA/",
 
-12 - Add MTA.YAML
-    Run 'cds add mta'
+12 - To add profile add below code in 'cds' in package.json
+        "cds": {
+            "[sqlite]":{
+            "requires":{
+                "db":{
+                "kind":"sqlite"
+                }
+            }
+            }
+        }
+    This way we can add multiple profile like 'postgre', 'hana' to use those databases
+13 - To generate artifacts, run below command
+    cds build or 
+    cds build --profile sqlite   -- if profile added in the package.json
+    This will generate 'gen' folder 
+
+
 
 
 
